@@ -1,12 +1,30 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import WalletConnect from './WalletConnect';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  
+  const scrollToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+    
+    // Only try to scroll if we're on the home page
+    if (location.pathname === '/') {
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // If not on home page, navigate to home and then scroll
+      window.location.href = `/#${sectionId}`;
+    }
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
@@ -21,13 +39,32 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">Home</Link>
             <Link to="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">Dashboard</Link>
-            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">Features</a>
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
+            <button 
+              onClick={() => scrollToSection('features')} 
+              className="text-sm font-medium hover:text-primary transition-colors flex items-center"
+            >
+              Features
+            </button>
+            <button 
+              onClick={() => scrollToSection('how-it-works')} 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              How it Works
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className="text-sm font-medium hover:text-primary transition-colors"
+            >
+              About
+            </button>
           </div>
 
           {/* Actions */}
           <div className="hidden md:flex items-center space-x-4">
             <WalletConnect />
+            <Button variant="outline" size="sm" onClick={() => scrollToSection('contact')} className="border-white/20 text-white hover:bg-white/10">
+              Contact Us
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -43,8 +80,30 @@ const Navbar = () => {
           <div className="md:hidden py-4 space-y-4">
             <Link to="/" className="block text-sm font-medium hover:text-primary transition-colors">Home</Link>
             <Link to="/dashboard" className="block text-sm font-medium hover:text-primary transition-colors">Dashboard</Link>
-            <a href="#features" className="block text-sm font-medium hover:text-primary transition-colors">Features</a>
-            <a href="#about" className="block text-sm font-medium hover:text-primary transition-colors">About</a>
+            <button 
+              onClick={() => scrollToSection('features')} 
+              className="block text-sm font-medium hover:text-primary transition-colors w-full text-left"
+            >
+              Features
+            </button>
+            <button 
+              onClick={() => scrollToSection('how-it-works')} 
+              className="block text-sm font-medium hover:text-primary transition-colors w-full text-left"
+            >
+              How it Works
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className="block text-sm font-medium hover:text-primary transition-colors w-full text-left"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className="block text-sm font-medium hover:text-primary transition-colors w-full text-left"
+            >
+              Contact Us
+            </button>
             <div className="pt-2">
               <WalletConnect />
             </div>

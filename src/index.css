@@ -31,6 +31,12 @@
     @apply bg-background text-foreground antialiased selection:bg-solana/20 selection:text-solana;
     background-image: linear-gradient(135deg, rgba(107, 33, 168, 0.95) 0%, rgba(86, 24, 128, 0.95) 50%, rgba(55, 48, 163, 0.95) 100%);
     min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth scrolling for the entire site */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -49,5 +55,20 @@
   
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-solana via-solana-tertiary to-solana-secondary;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
   }
 }

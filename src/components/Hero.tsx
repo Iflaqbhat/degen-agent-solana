@@ -1,12 +1,26 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Bot, Zap } from 'lucide-react';
+import { ArrowRight, Bot, Zap, ExternalLink, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Hero = () => {
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleDemoRequest = () => {
+    toast.success("Demo Request", {
+      description: "Thank you for your interest! Our team will contact you shortly."
+    });
+  };
+
   return (
-    <div className="relative overflow-hidden py-20">
+    <div id="hero" className="relative overflow-hidden py-20">
       <div className="absolute inset-0 bg-purple-blue-gradient opacity-30 animate-gradient-shift"></div>
       
       <div className="absolute inset-0">
@@ -40,16 +54,33 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/#features" className="w-full sm:w-auto">
-              <Button 
-                variant="outline" 
-                className="w-full sm:w-auto px-8 py-4 text-base border-white/30 text-white bg-white/5 hover:bg-white/10 transition-all"
-              >
-                <Bot className="mr-2 h-5 w-5 text-solana-tertiary" />
-                Explore Features
-              </Button>
-            </Link>
+            <Button 
+              variant="outline" 
+              className="w-full sm:w-auto px-8 py-4 text-base border-white/30 text-white bg-white/5 hover:bg-white/10 transition-all"
+              onClick={scrollToFeatures}
+            >
+              <Bot className="mr-2 h-5 w-5 text-solana-tertiary" />
+              Explore Features
+            </Button>
+            <Button 
+              variant="outline" 
+              className="w-full sm:w-auto px-8 py-4 text-base border-white/30 text-white bg-white/5 hover:bg-white/10 transition-all"
+              onClick={handleDemoRequest}
+            >
+              <ExternalLink className="mr-2 h-5 w-5 text-solana-secondary" />
+              Request Demo
+            </Button>
           </div>
+        </div>
+        
+        <div className="flex justify-center mt-16">
+          <Button 
+            variant="ghost" 
+            className="text-white/70 hover:text-white hover:bg-transparent animate-bounce"
+            onClick={scrollToFeatures}
+          >
+            <ChevronDown className="h-6 w-6" />
+          </Button>
         </div>
       </div>
       
