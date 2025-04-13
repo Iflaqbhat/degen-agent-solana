@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -106,8 +107,10 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'hero-pattern': 'linear-gradient(to bottom right, #E0F2FE, #FFFFFF, #EFF6FF)',
-				'hero-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-				'section-gradient': 'linear-gradient(to right, #6a11cb 0%, #2575fc 100%)'
+				'hero-gradient': 'linear-gradient(135deg, #7E69AB 0%, #6E59A5 50%, #8B5CF6 100%)',
+				'section-gradient': 'linear-gradient(to right, #6a11cb 0%, #2575fc 100%)',
+				'app-gradient': 'linear-gradient(135deg, #9b87f5 0%, #7E69AB 50%, #8B5CF6 100%)',
+				'purple-blue-gradient': 'linear-gradient(90deg, #9945FF 0%, #8B5CF6 25%, #7E69AB 50%, #6E59A5 75%, #00C2FF 100%)'
 			}
 		}
 	},

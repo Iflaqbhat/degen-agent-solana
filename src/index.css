@@ -4,13 +4,50 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 260 30% 12%;
+    --foreground: 0 0% 95%;
+    --card: 240 10% 16%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 16%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 260 73% 68%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 155 66% 51%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 240 5% 25%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 192 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 26%;
+    --input: 240 5% 26%;
+    --ring: 260 73% 68%;
+    --radius: 0.5rem;
+  }
+
   body {
     @apply bg-background text-foreground antialiased selection:bg-solana/20 selection:text-solana;
+    background-image: linear-gradient(135deg, rgba(107, 33, 168, 0.95) 0%, rgba(86, 24, 128, 0.95) 50%, rgba(55, 48, 163, 0.95) 100%);
+    min-height: 100vh;
   }
 }
 
 @layer utilities {
   .glass-card {
     @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg;
+  }
+  
+  .purple-glow {
+    box-shadow: 0 0 15px rgba(153, 69, 255, 0.5);
+  }
+  
+  .animate-hover {
+    @apply transition-all duration-300 hover:scale-105;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-solana via-solana-tertiary to-solana-secondary;
   }
 }
