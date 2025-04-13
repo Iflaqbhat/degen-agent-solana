@@ -6,65 +6,49 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden bg-hero-pattern">
-      {/* Background elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute right-1/4 top-20 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute left-1/4 bottom-10 w-80 h-80 bg-blue-100/20 rounded-full blur-3xl"></div>
-      </div>
+    <div className="relative overflow-hidden bg-hero-gradient text-white">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 opacity-75 animate-gradient-shift"></div>
       
-      <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block mb-6 px-4 py-1.5 bg-blue-50 border border-blue-100 rounded-full">
-            <p className="text-sm font-medium text-blue-700 flex items-center">
-              <Zap size={16} className="mr-2" />
-              Powered by AI + Solana Blockchain
+      <div className="container mx-auto px-4 py-24 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-block mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+            <p className="text-sm font-medium flex items-center justify-center">
+              <Zap size={16} className="mr-2 text-solana-secondary" />
+              AI x Solana: Powering the Next Wave of Blockchain Innovation
             </p>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            Your AI agent for the
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-solana via-solana-tertiary to-solana-secondary"> Solana </span>
-            ecosystem
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70">
+            Conversational AI for 
+            <span className="block text-solana-secondary"> Solana Ecosystem</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            DegenAI helps you navigate the Solana blockchain with simple conversational commands. Check balances, send tokens, and analyze markets — all through natural language.
+          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
+            DegenAI transforms complex blockchain interactions into simple, natural language conversations. 
+            Manage assets, analyze markets, and explore Solana with unprecedented ease.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/dashboard">
-              <Button className="blue-gradient text-base px-6 py-6 h-auto">
+            <Link to="/dashboard" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto px-8 py-4 text-base bg-solana-secondary text-black hover:bg-solana-secondary/90 transition-all">
                 Launch Dashboard
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <a href="#features">
-              <Button variant="outline" className="border-primary text-primary hover:text-primary hover:bg-primary/5 text-base px-6 py-6 h-auto">
-                <Bot className="mr-2 h-5 w-5" />
+            <Link to="/#features" className="w-full sm:w-auto">
+              <Button 
+                variant="outline" 
+                className="w-full sm:w-auto px-8 py-4 text-base border-white/30 text-white hover:bg-white/10 transition-all"
+              >
+                <Bot className="mr-2 h-5 w-5 text-solana-tertiary" />
                 Explore Features
               </Button>
-            </a>
-          </div>
-          
-          {/* Demo Preview */}
-          <div className="mt-16 max-w-3xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-sm shadow-lg border border-gray-100 rounded-2xl overflow-hidden p-4">
-              <div className="flex items-center space-x-2 mb-3">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-xl mb-3">
-                <p className="text-gray-800 text-left"><span className="font-medium">User:</span> Show me my SOL balance and any new NFTs.</p>
-              </div>
-              <div className="p-4 bg-blue-50 rounded-xl">
-                <p className="text-gray-800 text-left"><span className="font-medium">DegenAI:</span> Your wallet currently holds 5.24 SOL ($516.23). You received 2 new NFTs in the last 24h from Captains Club collection.</p>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
+      
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/5 to-transparent"></div>
     </div>
   );
 };

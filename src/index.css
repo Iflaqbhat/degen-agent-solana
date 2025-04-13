@@ -4,71 +4,13 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 224 76% 48%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 214 100% 97%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 214 100% 97%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 224 76% 48%;
-
-    --radius: 0.75rem;
-  }
-
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased selection:bg-solana/20 selection:text-solana;
   }
-  
+}
+
+@layer utilities {
   .glass-card {
-    @apply bg-white/70 backdrop-blur-sm border border-white/20 shadow-sm;
-  }
-  
-  .blue-gradient {
-    @apply bg-gradient-to-r from-blue-500/80 to-blue-600/90 text-white;
-  }
-  
-  .subtle-gradient {
-    background-image: linear-gradient(to bottom right, #E0F2FE, #FFFFFF, #EFF6FF);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg;
   }
 }
